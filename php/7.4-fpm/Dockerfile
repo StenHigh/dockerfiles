@@ -1,5 +1,6 @@
-FROM php:7.2-fpm
-MAINTAINER Juan Alonso <juan.jalogut@gmail.com>
+FROM php:7.4-fpm
+
+LABEL authors="Daniel Lozano <dn.lozano.m@gmail.com>, Juan Alonso <juan.jalogut@gmail.com>"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   cron \
@@ -11,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libmcrypt-dev \
   libpng-dev \
   libxslt1-dev \
+  libzip-dev \
   lsof \
   mariadb-client \
   vim \
@@ -18,10 +20,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   procps \
   sudo \
   openssh-client \
+  libonig-dev \
   && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-configure \
-  gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+  gd --with-freetype --with-jpeg
 
 RUN docker-php-ext-install \
   bcmath \
