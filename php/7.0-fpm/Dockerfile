@@ -35,6 +35,8 @@ RUN docker-php-ext-install \
   zip \
   sockets
 
+RUN docker-php-ext-enable sockets
+
 RUN pecl channel-update pecl.php.net \
   && pecl install -f xdebug-2.7.2 \
   && docker-php-ext-enable xdebug \
