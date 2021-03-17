@@ -37,7 +37,10 @@ RUN docker-php-ext-install \
   soap \
   xsl \
   zip \
-  sockets
+  sockets \
+  pcntl
+
+RUN docker-php-ext-enable sockets pcntl
 
 # Remove libsodium and install upgrading version:
 RUN rm -f /usr/local/etc/php/conf.d/*sodium.ini \
