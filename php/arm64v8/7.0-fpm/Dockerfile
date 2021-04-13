@@ -1,5 +1,5 @@
 FROM arm64v8/php:7.0-fpm-alpine
-MAINTAINER Juan Alonso <juan.jalogut@gmail.com>
+MAINTAINER Dzianis Minich <denis.stenhigh@gmail.com>
 
 RUN apk add --no-cache cron \
   git \
