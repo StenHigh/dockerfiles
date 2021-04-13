@@ -1,8 +1,7 @@
-FROM arm64v8/php:7.0-fpm
+FROM arm64v8/php:7.0-fpm-alpine
 MAINTAINER Juan Alonso <juan.jalogut@gmail.com>
 
-RUN apt-get update && apt-get install -y \
-  cron \
+RUN apk add --no-cache cron \
   git \
   gzip \
   libfreetype6-dev \
@@ -17,7 +16,7 @@ RUN apt-get update && apt-get install -y \
   zip \
   procps \
   sudo \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/cache/apk/*
 
 RUN docker-php-ext-configure \
   gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
