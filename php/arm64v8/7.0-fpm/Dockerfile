@@ -1,7 +1,7 @@
 FROM arm64v8/php:7.0-fpm-alpine
 MAINTAINER Dzianis Minich <denis.stenhigh@gmail.com>
 
-RUN apk add --no-cache cron \
+RUN apk add apk --update --no-cache cron \
   git \
   gzip \
   libfreetype6-dev \
