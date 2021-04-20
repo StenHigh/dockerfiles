@@ -1,6 +1,6 @@
 FROM arm64v8/php:7.0-fpm-alpine
 MAINTAINER Dzianis Minich <denis.stenhigh@gmail.com>
-
+CMD ["/usr/bin/echo", "Start install php ext"]
 RUN apk --update add --no-cache cron \
   git \
   gzip \
@@ -17,7 +17,7 @@ RUN apk --update add --no-cache cron \
   procps \
   sudo \
   && rm -rf /var/cache/apk/*
-
+CMD ["/usr/bin/echo", "Start php ext configuration"]
 RUN docker-php-ext-configure \
   gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 
